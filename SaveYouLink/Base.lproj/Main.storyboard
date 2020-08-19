@@ -33,7 +33,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Alr-nn-dmZ">
                             <connections>
                                 <action selector="addButton:" destination="BYZ-38-t0r" id="Wrs-jM-16y"/>
-                                <segue destination="oq7-Uc-CQE" kind="presentation" id="coR-Qx-Vif"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -44,22 +43,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="137.94642857142856"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="NWD-e9-xvJ">
-            <objects>
-                <viewController id="oq7-Uc-CQE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Saj-DT-lF1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="SqK-0S-lDh"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="snk-3V-rdP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7GS-ii-5YM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2884" y="138"/>
         </scene>
         <!--Folders-->
         <scene sceneID="H5P-3r-Oxu">
@@ -83,6 +66,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6ea-X1-YTQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uZb-qV-HJa">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
