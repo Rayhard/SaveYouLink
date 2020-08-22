@@ -16,6 +16,8 @@
 		33414A4D24EC4BD2005F40E1 /* LinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33414A4C24EC4BD2005F40E1 /* LinkCell.xib */; };
 		33414A5324EC4FAB005F40E1 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33414A5224EC4FAB005F40E1 /* LinkCell.swift */; };
 		33414A5724EC5DB2005F40E1 /* SaveYouLink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33414A5524EC5DB2005F40E1 /* SaveYouLink.xcdatamodeld */; };
+		335214DA24F0ECC2001D0494 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335214D924F0ECC2001D0494 /* CoreDataService.swift */; };
+		335214E024F0F5F9001D0494 /* LinkCoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335214DF24F0F5F9001D0494 /* LinkCoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		33414A4C24EC4BD2005F40E1 /* LinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkCell.xib; sourceTree = "<group>"; };
 		33414A5224EC4FAB005F40E1 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		33414A5624EC5DB2005F40E1 /* LinkItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LinkItemModel.xcdatamodel; sourceTree = "<group>"; };
+		335214D924F0ECC2001D0494 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		335214DF24F0F5F9001D0494 /* LinkCoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				33414A5424EC5A5C005F40E1 /* Service */,
-				33414A4F24EC4EC3005F40E1 /* Model */,
-				33414A4E24EC4DBD005F40E1 /* Controller */,
-				33414A4B24EC4B99005F40E1 /* Cell */,
+				33414A4F24EC4EC3005F40E1 /* Data */,
+				33414A4E24EC4DBD005F40E1 /* AllLinksViewController */,
 				33414A3724EC49FF005F40E1 /* AppDelegate.swift */,
 				33414A3924EC49FF005F40E1 /* SceneDelegate.swift */,
 				33414A3D24EC49FF005F40E1 /* Main.storyboard */,
@@ -85,7 +88,41 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		33414A4E24EC4DBD005F40E1 /* Controller */ = {
+		33414A4E24EC4DBD005F40E1 /* AllLinksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				335214DB24F0F3F9001D0494 /* Model */,
+				335214DD24F0F40D001D0494 /* View */,
+				335214DC24F0F402001D0494 /* Controller */,
+				335214DE24F0F418001D0494 /* Service */,
+			);
+			path = AllLinksViewController;
+			sourceTree = "<group>";
+		};
+		33414A4F24EC4EC3005F40E1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33414A5524EC5DB2005F40E1 /* SaveYouLink.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		33414A5424EC5A5C005F40E1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				335214D924F0ECC2001D0494 /* CoreDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		335214DB24F0F3F9001D0494 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		335214DC24F0F402001D0494 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				33414A3B24EC49FF005F40E1 /* AllLinksViewController.swift */,
@@ -93,17 +130,18 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		33414A4F24EC4EC3005F40E1 /* Model */ = {
+		335214DD24F0F40D001D0494 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				33414A5524EC5DB2005F40E1 /* SaveYouLink.xcdatamodeld */,
+				33414A4B24EC4B99005F40E1 /* Cell */,
 			);
-			path = Model;
+			path = View;
 			sourceTree = "<group>";
 		};
-		33414A5424EC5A5C005F40E1 /* Service */ = {
+		335214DE24F0F418001D0494 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				335214DF24F0F5F9001D0494 /* LinkCoreDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -184,6 +222,8 @@
 				33414A5324EC4FAB005F40E1 /* LinkCell.swift in Sources */,
 				33414A3C24EC49FF005F40E1 /* AllLinksViewController.swift in Sources */,
 				33414A3824EC49FF005F40E1 /* AppDelegate.swift in Sources */,
+				335214DA24F0ECC2001D0494 /* CoreDataService.swift in Sources */,
+				335214E024F0F5F9001D0494 /* LinkCoreDataService.swift in Sources */,
 				33414A3A24EC49FF005F40E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

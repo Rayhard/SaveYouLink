@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class AllLinksViewController: UIViewController {
 
@@ -22,7 +21,8 @@ class AllLinksViewController: UIViewController {
                                        style: .default) { action in
                                         let tf = alertController.textFields?.first
                                         if let newLink = tf?.text {
-                                            self.saveData(withLink: newLink)
+                                            guard let link = LinkCoreDataService.saveLinkToData(link: newLink) else { return }
+                                            self.linkItems.append(link)
                                             self.tableView.reloadData()
                                         }
         }
@@ -36,65 +36,16 @@ class AllLinksViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func saveData(withLink link: String){
-        let context = getContext()
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "LinkItem", in: context) else { return }
-        
-        let linkObject = LinkItem(entity: entity, insertInto: context)
-//        linkObject.title = "test"
-        linkObject.urlLink = link
-        
-        do {
-            try context.save()
-            linkItems.append(linkObject)
-            
-        } catch let error as NSError{
-            print(error.localizedDescription)
-        }
-    }
-    
     var linkItems: [LinkItem] = []
-    
-    // Получаем контекст
-    private func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // получаем данные из core data
-        let context = getContext()
-        let fetchRequest: NSFetchRequest<LinkItem> = LinkItem.fetchRequest()
-        
-        do {
-            linkItems = try context.fetch(fetchRequest)
-            
-        } catch let error as NSError{
-            print(error.localizedDescription)
-        }
+        linkItems = LinkCoreDataService.getLinkFromData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Полное удаление
-//        let context = getContext()
-//        let fetchRequest: NSFetchRequest<LinkItem> = LinkItem.fetchRequest()
-//        if let results = try? context.fetch(fetchRequest){
-//            for object in results {
-//                context.delete(object)
-//            }
-//        }
-//
-//        do {
-//            try context.save()
-//
-//        } catch let error as NSError{
-//            print(error.localizedDescription)
-//        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -112,9 +63,8 @@ extension AllLinksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LinkCell", for: indexPath) as! LinkCell
         
-        let index = linkItems[indexPath.row]
-        
-        cell.urlLink.text = index.urlLink
+        let link = linkItems[indexPath.row]
+        cell.configure(link: link)
         
         return cell
     }

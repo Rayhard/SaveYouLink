@@ -13,4 +13,8 @@ class LinkCell: UITableViewCell {
     @IBOutlet weak var urlLink: UILabel!
     @IBOutlet weak var imageLink: UIImageView!
     
+    func configure(link: LinkItem){
+        title.text = link.title
+        urlLink.text = link.urlLink
+    }
 }
